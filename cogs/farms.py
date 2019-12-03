@@ -57,13 +57,15 @@ class FarmCog(commands.Cog):
         self.farms = {}
 
     @commands.command(name="createFarm")
-    async def newfarm(self, ctx):
+    async def newfarm(self, ctx,name):
+        if len(name) > 20:
+            await ctx.send("`The name is too long.`")
         id = ctx.author.id
         if id in self.farms:
             await ctx.send("`You already have a farm.`")
             return
 
-        self.farms[id] = Farm(id)
+        self.farms[id] = Farm(id,name)
         await ctx.send(f"`{ctx.author.display_name}, you now have a farm!`")
 
     @commands.command(name="plant")
