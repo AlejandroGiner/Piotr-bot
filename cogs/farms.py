@@ -29,19 +29,20 @@ class Farm():
         'cabbage':2,
         }
 
-    def __init__(self, owner):
+    def __init__(self, owner,name):
         self.crops = []
         self.owner = owner
-        self.size = 3
+        self.name = name
+        self.size = 3   #max crop capacity
 
-    def addCrop(self,crop):
+    def addCrop(self,crop): #if there is room, adds a crop with valid name
         if len(self.crops) == self.size:
             raise RuntimeError('There is no room for more crops in the farm.')
         if crop not in Farm.validCrops:
             raise ValueError('The crop is not valid.')
         self.crops.append(Crop(crop,Farm.validCrops[crop]))
 
-    def asciiFarm(self):
+    def asciiFarm(self):    #returns string representation of farm, with crops and their growth progress
         textfarm = '`'
         for i in self.crops:
             textfarm += f'{i.name} : {i.growth}/{i.requiredGrowth} Growth\n'
