@@ -1,0 +1,6 @@
+.env
+*.gif
+*.jpg
+*.jpeg
+*.png
+*.pyc
