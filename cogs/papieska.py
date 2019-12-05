@@ -65,7 +65,7 @@ class Papieska(commands.Cog):
 
         await ctx.send(f"`Only {str(diff)[:-7]} until Papieska.`")
 
-    @commands.command(name="papieskaSpam", aliases=["papieskaspam"])
+    @commands.command(name="papieskaSpam")
     async def papieskaspam(self, ctx):
         self.on[ctx.channel.id] = True
         while self.on[ctx.channel.id]:
@@ -73,7 +73,7 @@ class Papieska(commands.Cog):
                 await ctx.send(content="PAPIESKA", file=discord.File(f))
             await asyncio.sleep(2)
 
-    @commands.command(name="papieskaSpamOff", aliases=["papieskaspamoff", "papieskaSpamoff"])
+    @commands.command(name="papieskaSpamOff")
     async def papieskaspamoff(self, ctx):
         self.on[ctx.channel.id] = False
 

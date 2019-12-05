@@ -18,7 +18,7 @@ load_dotenv()
 extensions,ALLOWED_CHANNELS,BANNED_ACCOUNT_IDS,WELCOME_MESSAGE = reload_env_vars()
 token = os.getenv('DISCORD_TOKEN')
 
-bot = commands.Bot(command_prefix='>>')
+bot = commands.Bot(command_prefix='>>', case_insensitive=True)
 
 for i in extensions:
     bot.load_extension('cogs.'+i)

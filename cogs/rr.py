@@ -40,7 +40,7 @@ class RussianRoulette(commands.Cog):
             await ctx.send("The gun is empty. Nothing happens.")
         
 
-    @commands.command(name="ReloadGun",aliases=['reloadgun'])
+    @commands.command(name="ReloadGun")
     @commands.guild_only()
     async def reloadgun(self,ctx,bullets: int = 1):
         self.gun=Gun(bullets)
